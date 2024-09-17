@@ -9,7 +9,7 @@ const Create = () => {
     const [name, setName] = useState([]);
     const [email, setEmail] = useState([]);
 
-    const history = useNavigate();
+    const history = useNavigate();  
 
     const header = {"Access-Control-Allow-Origin": "*"};
 
@@ -26,6 +26,10 @@ const Create = () => {
         })
     };
 
+    function read() {
+        history("/read");
+    };
+
     return(
         <>
             <nav className="navbar navbar-light bg-light">
@@ -35,13 +39,14 @@ const Create = () => {
                     <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                     <button className="btn btn-outline-success me-2" type="submit">Search</button>
                     <button
-                        className="btn btn-outline-dark"
+                        className="btn btn-outline-dark me-2"
                         type="button"
                         aria-label="Toggle theme"
                         onClick={() => setLightTheme(!lightmode)}
                     >
                         Theme
                     </button>
+                    <button className="btn btn-outline-primary" onClick={read}>Read</button>
                     </form>
                 </div>
             </nav>
